@@ -1,0 +1,29 @@
+# Force LF line endings across the repo (even on windows)
+* text=auto eol=lf 
+
+# Python files explicitly
+*.py text eol=lf diff=python 
+
+# Shell scripts
+*.sh text eol=lf
+Makefile text eol=lf
+
+# Config files (no CRLF surprises)
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.md text eol=lf
+
+# Binary
+*.parquet binary
+*.avro binary
+*.orc binary
+*.png binary
+*.jpg binary
+*.pdf binary
+
+# Export exclusion for linguist (GitHub stats)
+docs/* linguist-documentation
+EOF

@@ -1,0 +1,63 @@
+# ============================================
+# BMKG Data Platform - .gitignore
+# ============================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Secrets & env files
+# track .env.example, ignore actual .env
+.env
+.env.local
+.env.*.local
+
+# -- Data ( local datalake before MinIO )
+# data/ is gitignored entirely; only data/README.md is tracked
+data/raw/
+data/staged/
+data/processed/
+data/seeds/
+data/snapshots/
+!data/README.md
+
+# Logs
+logs/
+*.logs
+*.log.*
+
+# Docker
+.docker/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# OS
+.Trash-*
+
+# Secrets scanning artifacts 
+secrets.yaml
+credentials.json
+EOF
+
