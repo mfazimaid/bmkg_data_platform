@@ -1,0 +1,4 @@
+# Shared runtime dependencies used across phases.
+# Keep this list MINIMAL - phase-specific deps go in phase-*.txt.
+python-dotenv==1.0.1
+EOF

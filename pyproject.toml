@@ -1,0 +1,74 @@
+[project]
+name = "bmkg-data-platform"
+version = "0.1.0"
+description = "Production-grade lakehouse data platform for BMKG weather data"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "BMKG Data Engineering Team"}
+] 
+license = {text = "MIT"}
+
+# Dependencies are pinned in requirements/ — NOT here.
+# pyproject.toml only declares metadata + tool configs.
+# Rationale: split per-phase requirements makes Docker layers
+# smaller and lets each phase install only what it needs.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["ingestion"]
+
+# ============================================
+# Ruff (linter + formatter, single tool)
+# ============================================
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+    ".venv",
+    "data",
+    "lake",
+]
+
+[tool.ruff.lint]
+# Conservative rule set; we'll expand in Phase 13
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "UP",     # pyupgrade
+    "SIM",    # flake8-simplify
+]
+ignore = [
+    "E501",   # line length (handled by formatter)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"ingestion/tests/*" = ["B011"]  # asserts are fine in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# ============================================
+# Pytest
+# ============================================
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["ingestion/tests"]
+pythonpath = ["ingestion"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+markers = [
+    "integration: marks tests as integration (require running services)",
+    "unit: marks tests as unit tests (default)",
+]
+EOF
