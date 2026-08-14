@@ -1,0 +1,1 @@
+# empty on purpose - pytest discovery config in pyproject.toml
