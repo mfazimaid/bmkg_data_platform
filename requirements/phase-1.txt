@@ -1,11 +1,10 @@
+ -r base.txt
 # Phase 1: BMKG ingestion (XML + JSON parsing, MinIO upload).
 # Loaded by ingestion container in Phase 1.
--r base.txt
 
 requests==2.32.3
 lxml==5.3.0
 pydantic==2.9.2
-struclog==24.4.0
-minio=7.2.8
+structlog==24.4.0
+minio==7.2.8
 tenacity==9.0.0
-EOF

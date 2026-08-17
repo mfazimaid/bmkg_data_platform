@@ -71,4 +71,3 @@ markers = [
     "integration: marks tests as integration (require running services)",
     "unit: marks tests as unit tests (default)",
 ]
-EOF
