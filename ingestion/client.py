@@ -34,15 +34,15 @@ class BMKGClient:
         if self._session is None:
             self._session = requests.Session()
             retry_strategy = Retry(
-                total=3, 
+                total=3,
                 backoff_factor=2.0, # Longer backoff for rate limit
                 allowed_methods=["GET"],
-                status_forcelist=[500, 502, 504, 429], # 429 rate limited 
+                status_forcelist=[500, 502, 504, 429], # 429 rate limited
                 raise_on_status=False
             )
             adapter = HTTPAdapter(
                 max_retries=retry_strategy,
-                pool_connections=1, 
+                pool_connections=1,
                 pool_maxsize=5
             )
             self._session.mount("https://", adapter)
