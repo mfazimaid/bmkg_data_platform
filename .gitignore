@@ -22,6 +22,8 @@ htmlcov/
 venv/
 env/
 ingestion/config.py
+
+# Claude agent
 CLAUDE.md
 
 # Secrets & env files
