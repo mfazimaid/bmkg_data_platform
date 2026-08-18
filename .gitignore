@@ -21,7 +21,8 @@ htmlcov/
 .venv/
 venv/
 env/
-ingestion/setup.py
+ingestion/config.py
+CLAUDE.md
 
 # Secrets & env files
 # track .env.example, ignore actual .env
