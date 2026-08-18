@@ -21,6 +21,7 @@ htmlcov/
 .venv/
 venv/
 env/
+ingestion/setup.py
 
 # Secrets & env files
 # track .env.example, ignore actual .env
